@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <?php
+        include('Student.php');
+        $students = array(); 
+        
+        
+        $first = new Student();
+        $first->surname = "Doe";
+        $first->first_name = "John"; 
+        $first->add_email('home','john@doe.com'); 
+        $first->add_email('work','jdoe@mcdonalds.com');
+        $first->add_grade(65); 
+        $first->add_grade(75); 
+        $first->add_grade(55); 
+        $students['j123'] = $first;
+        
+        $second = new Student();
+        $second->surname = "Einstein"; 
+        $second->first_name = "Albert";
+        $second->add_email('home','albert@braniacs.com');
+        $second->add_email('work1','a_einstein@bcit.ca'); 
+        $second->add_email('work2','albert@physics.mit.edu'); 
+        $second->add_grade(95); $second->add_grade(80);
+        $second->add_grade(50); $students['a456'] = $second; 
+        
+        $third = new Student();
+        $third->surname = "Wu"; 
+        $third->first_name = "Chengwu";
+        $third->add_email('home','ChengwuWu@braniacs.com');
+        $third->add_email('work1','ChengwuWu@bcit.ca'); 
+        $third->add_email('work2','ChengwuWu@physics.mit.edu'); 
+        $third->add_grade(85); $second->add_grade(70);
+        $third->add_grade(60); $students['b496'] = $third;
+        
+        $fourth = new Student();
+        $fourth->surname = "Zhang"; 
+        $fourth->first_name = "san";
+        $fourth->add_email('home','sanZhang@braniacs.com');
+        $fourth->add_email('work1','sanZhang@bcit.ca'); 
+        $fourth->add_email('work2','sanZhang@physics.mit.edu'); 
+        $fourth->add_grade(90); $second->add_grade(90);
+        $fourth->add_grade(78); $students['c985'] = $fourth;
+        
+        ksort($students); 
+        
+        foreach($students as $student) 
+            echo $student->toString(); 
+        
+        ?>
+    </body>
+</html>
